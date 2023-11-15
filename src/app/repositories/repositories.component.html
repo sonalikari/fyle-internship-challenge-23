@@ -1,0 +1,23 @@
+<div *ngIf="userRepos.length > 0" class="mt-8">
+  <div class="flex justify-between">
+    <!-- <h2 class="text-2xl font-semibold ml-10">User Repositories</h2> -->
+    <!-- ItemsPerPageComponent -->
+    <app-items-per-page
+      (itemsPerPageChange)="setItemsPerPageChange($event)"
+    ></app-items-per-page>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mx-7">
+      <div *ngFor="let repo of userRepos" class="bg-white-100 border border-black p-4 text-s flex flex-col justify-between hover:bg-gray-100">
+      <div class="flex justify-between">
+        <h3 class="text-lg font-bold">{{ repo.name }}</h3>
+      </div>
+      <p class="text-gray-700 mb-1">{{ repo.description }}</p>
+      
+      <div *ngIf="repo.languages">
+        <div class="flex flex-wrap">
+          <div *ngFor="let lang of repo.languages" class="bg-blue-500 text-white px-2 py-1 rounded-md m-1 font-bold">{{ lang }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
