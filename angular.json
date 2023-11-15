@@ -30,6 +30,11 @@
               "src/assets"
             ],
             "styles": [
+               {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              },
               "src/styles.scss",
               "src/app/app.component.scss"
             ],
